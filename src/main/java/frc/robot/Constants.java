@@ -15,10 +15,10 @@ import edu.wpi.first.math.util.Units;
 
 public final class Constants
 {
-    public static final Rotation2d SWERVE_LEFTFRONT_OFFSET = Rotation2d.fromDegrees(227.374047);
-    public static final Rotation2d SWERVE_LEFTREAR_OFFSET = Rotation2d.fromDegrees(11.601563);
-    public static final Rotation2d SWERVE_RIGHTFRONT_OFFSET = Rotation2d.fromDegrees(71.806641);
-    public static final Rotation2d SWERVE_RIGHTREAR_OFFSET = Rotation2d.fromDegrees(175.605469);
+    public static final Rotation2d SWERVE_LEFTFRONT_OFFSET = Rotation2d.fromDegrees(157.763672);
+    public static final Rotation2d SWERVE_LEFTREAR_OFFSET = Rotation2d.fromDegrees(241.962891);
+    public static final Rotation2d SWERVE_RIGHTFRONT_OFFSET = Rotation2d.fromDegrees(259.101563);
+    public static final Rotation2d SWERVE_RIGHTREAR_OFFSET = Rotation2d.fromDegrees(222.011719);
 
     public static final double SWERVE_CHASSIS_TRACKWIDTH_METERS = 0.62865;
     public static final double SWERVE_CHASSIS_WHEELBASE_METERS = 0.62865;
@@ -28,7 +28,7 @@ public final class Constants
     public static final  double SWERVE_MAX_ANGULAR_VELOCITY = 4.5;//Wait for test.
 
 
-    public static final double VOLTAGE_COMPENSATION = 12.0;
+    public static final double SWERVE_VOLTAGE_COMPENSATION = 12.0;
     //Swerve angle falcon current limit.
     public static final int SWERVE_ANGLE_CURRENT_LIMIT = 35;
     public static final boolean SWERVE_ANGLE_CURRENT_LIMIT_ENABLE = true;

@@ -99,7 +99,7 @@ public class SwerveModule {
         driveFalconConfiguration.slot0.kI = SWERVE_DRIVE_MOTOR_KI;
         driveFalconConfiguration.slot0.kD = SWERVE_DRIVE_MOTOR_KD;
         driveFalconConfiguration.slot0.kF = SWERVE_DRIVE_MOTOR_KF;
-        driveFalconConfiguration.voltageCompSaturation = VOLTAGE_COMPENSATION;
+        driveFalconConfiguration.voltageCompSaturation = SWERVE_VOLTAGE_COMPENSATION;
         driveFalconConfiguration.supplyCurrLimit = new SupplyCurrentLimitConfiguration(
                 SWERVE_DRIVE_CURRENT_LIMIT_ENABLE,
                 SWERVE_DRIVE_CONTINUOUS_CURRENT_LIMIT,
@@ -107,7 +107,6 @@ public class SwerveModule {
                 SWERVE_DRIVE_PEAK_CURRENT_DURATION);
         driveFalconConfiguration.openloopRamp = SWERVE_DRIVE_MOTOR_OPENLOOPRAMP;
         driveFalconConfiguration.closedloopRamp = SWERVE_DRIVE_MOTOR_CLOSELOOPRAMP;
-
         driveFalcon.configFactoryDefault();
         driveFalcon.configAllSettings(driveFalconConfiguration);
         driveFalcon.setInverted(swerveTypeConstants.driveMotorInvert);
@@ -123,11 +122,10 @@ public class SwerveModule {
         angleNEO.getPIDController().setD(swerveTypeConstants.angleKD);
         angleNEO.getPIDController().setFF(swerveTypeConstants.angleKF);
         angleNEO.setSmartCurrentLimit(SWERVE_ANGLE_CURRENT_LIMIT);
-        angleNEO.enableVoltageCompensation(VOLTAGE_COMPENSATION);
+        angleNEO.enableVoltageCompensation(SWERVE_VOLTAGE_COMPENSATION);
         angleNEO.setInverted(swerveTypeConstants.angleMotorInvert);
         angleNEO.setIdleMode(ANGLE_NEUTRAL_MODE);
         angleMotorEncoder.setPositionConversionFactor(360 / swerveTypeConstants.angleGearRatio);
-        angleNEO.burnFlash();
         resetToAbsolute();
     }
 
