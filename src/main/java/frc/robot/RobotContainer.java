@@ -39,9 +39,10 @@ public class RobotContainer
     {
         swerveSubsystem.setDefaultCommand(new SwerveDriveCommand(
                 swerveSubsystem,
-                () -> controller_driveX.getRawAxis(XboxController.Axis.kLeftY.value),
-                () -> controller_driveX.getRawAxis(XboxController.Axis.kLeftX.value),
-                () -> controller_driveX.getRawAxis(XboxController.Axis.kRightX.value),
+                () -> -controller_driveX.getRawAxis(XboxController.Axis.kLeftY.value),
+                () -> -controller_driveX.getRawAxis(XboxController.Axis.kLeftX.value),
+                () -> -controller_driveX.getRawAxis(XboxController.Axis.kRightX.value),
+                () -> controller_driveX.getPOV(),
                 () -> controller_driveX.getBackButton()
         ));
         // Configure the trigger bindings
@@ -61,6 +62,8 @@ public class RobotContainer
     }
 
     public Command getAutonomousCommand() {
+        if(pathChooser.getSelected()=="DONT_MOVE"){return null;}
+
         List<PathPlannerTrajectory> pathGroup =
                 PathPlanner.loadPathGroup(pathChooser.getSelected(), new PathConstraints(4, 3));
         // This is just an example event map. It would be better to have a constant, global event map
